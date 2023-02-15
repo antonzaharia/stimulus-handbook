@@ -1,0 +1,18 @@
+<p class="text-sm text-gray-400 font-medium">Personal Details</p>
+<%= turbo_frame_tag 'edit_user' do %>
+  <div data-controller="user-name">
+    <%= form_for(@user, url: edit_user_path(@user), data: { turbo:false }, html: { method: :patch }) do |f| %>
+
+      <div class="mb-6">
+        <%= f.label :name, class: 'label' do %>
+          <span class="label-text">Your Name</span>
+        <% end %>
+        <%= f.text_field :name, autocomplete: "name", class: 'input', data: { 'user-name-target': 'nameInput'} %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Save", class: 'btn btn-secondary', data: { 'user-name-target': 'saveButton' }, disabled: true %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -4,5 +4,11 @@
 
 import { application } from "./application"
 
+import EditUserController from "./edit_user_controller"
+application.register("edit-user", EditUserController)
+
 import ToastifyController from "./toastify_controller"
 application.register("toastify", ToastifyController)
+
+import UserNameController from "./user_name_controller"
+application.register("user-name", UserNameController)
