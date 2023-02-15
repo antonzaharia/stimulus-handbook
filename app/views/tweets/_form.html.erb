@@ -1,4 +1,4 @@
-<%= form_with(model: tweet, class: local_assigns[:class], data: { type: "script", controller: "tweet-form", "inline-edit-target": "form" }) do |form| %>
+<%= form_with(model: tweet, class: local_assigns[:class], data: { action: "turbo:submit-start->tweet-form#submit", controller: "tweet-form", "inline-edit-target": "form" }) do |form| %>
   <% if tweet.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(tweet.errors.count, "error") %>
