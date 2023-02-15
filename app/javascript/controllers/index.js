@@ -7,6 +7,9 @@ import { application } from "./application"
 import EditUserController from "./edit_user_controller"
 application.register("edit-user", EditUserController)
 
+import InlineEditController from "./inline_edit_controller"
+application.register("inline-edit", InlineEditController)
+
 import ToastifyController from "./toastify_controller"
 application.register("toastify", ToastifyController)
 
