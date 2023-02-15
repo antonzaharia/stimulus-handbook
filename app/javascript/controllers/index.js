@@ -10,5 +10,8 @@ application.register("edit-user", EditUserController)
 import ToastifyController from "./toastify_controller"
 application.register("toastify", ToastifyController)
 
+import TweetFormController from "./tweet_form_controller"
+application.register("tweet-form", TweetFormController)
+
 import UserNameController from "./user_name_controller"
 application.register("user-name", UserNameController)

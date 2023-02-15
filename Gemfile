@@ -77,3 +77,5 @@ end
 gem "pry", "~> 0.14.2"
 
 gem "devise", "~> 4.8"
+
+gem "erb-formatter", "~> 0.4.2"

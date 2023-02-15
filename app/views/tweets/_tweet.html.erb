@@ -1,12 +1,9 @@
-<div id="<%= dom_id tweet %>">
-  <p>
-    <strong>User:</strong>
-    <%= tweet.user_id %>
-  </p>
-
-  <p>
-    <strong>Body:</strong>
-    <%= tweet.body %>
-  </p>
-
-</div>
+<%= link_to tweet_path(tweet), class: "card bg-base-100 shadow-xl mb-3", id: dom_id(tweet) do %>
+  <div class="card-body">
+    <h2 class="card-title"><%= tweet.user.name %></h2>
+    <p><%= tweet.body %></p>
+    <div class="card-actions justify-end">
+      <div class=""><small><%= tweet.created_at %></small></div>
+    </div>
+  </div>
+<% end %>
