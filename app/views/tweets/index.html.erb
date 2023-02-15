@@ -1,4 +1,6 @@
-<%= render "form", tweet: @tweet %>
+<%= turbo_frame_tag "new_tweet" do %>
+  <%= render "form", tweet: @tweet %>
+<% end %>
 <div id="tweets">
   <%= render @tweets %>
 </div>

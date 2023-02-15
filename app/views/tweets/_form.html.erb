@@ -1,31 +1,29 @@
-<%= turbo_frame_tag "new_tweet" do %>
-  <%= form_with(model: tweet, data: { controller: "tweet-form" }) do |form| %>
-    <% if tweet.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(tweet.errors.count, "error") %>
-          prohibited this tweet from being saved:</h2>
+<%= form_with(model: tweet, data: { type: "script", controller: "tweet-form" }) do |form| %>
+  <% if tweet.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(tweet.errors.count, "error") %>
+        prohibited this tweet from being saved:</h2>
 
-        <ul>
-          <% tweet.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="mb-4">
-      <%= form.text_area :body,
-                     placeholder: "Tweet your thoughts...",
-                     data: {
-                       target: "tweet-form.body",
-                       action: "keyup->tweet-form#update"
-                     },
-                     class: " w-full textarea textarea-primary" %>
-    </div>
-
-    <div class="flex w-full justify-between mb-4">
-      <span data-target="tweet-form.characterCount"></span>
-      <%= form.submit class: "btn btn-primary" %>
+      <ul>
+        <% tweet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
+
+  <div class="mb-4">
+    <%= form.text_area :body,
+                    placeholder: "Tweet your thoughts...",
+                    data: {
+                      "tweet-form-target": "body",
+                      action: "keyup->tweet-form#update paste->tweet-form#update"
+                    },
+                    class: " w-full textarea textarea-primary" %>
+  </div>
+
+  <div class="flex w-full justify-between mb-4">
+    <span data-tweet-form-target="characterCount"></span>
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
 <% end %>

@@ -1,2 +1,2 @@
 <%= turbo_stream.prepend "tweets", @tweet %>
-<%= turbo_stream.update "new_tweet", partial: "tweets/form", locals: { tweet: @tweet }%>
+<%= turbo_stream.update "new_tweet", partial: "tweets/form", locals: { tweet: Tweet.new } %>

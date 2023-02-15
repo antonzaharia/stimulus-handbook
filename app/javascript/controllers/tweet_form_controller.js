@@ -4,8 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["body", "characterCount"]
   connect() {
-    console.log(this.bodyTarget)
-    console.log(this.characterCountTarget)
+    this.update()
   }
 
   update() {
