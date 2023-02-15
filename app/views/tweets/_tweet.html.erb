@@ -1,7 +1,18 @@
 <div data-controller="inline-edit" id="<%= dom_id(tweet) %>" class="card bg-base-100 shadow-xl mb-3">
   <div class="card-body">
     <h2 class="card-title"><%= tweet.user.name %></h2>
-    <p data-inline-edit-target="body" data-action="click->inline-edit#toggle"><%= tweet.body %></p>
+    <div data-inline-edit-target="body" data-action="click->inline-edit#toggle">
+      <div class="stats shadow bg-plum-900 w-full">
+        <div class="stat">
+          <div class="stat-value"><%= tweet.body %></div>
+        </div>
+      </div>
+      <div>
+        <h4 class="label">Ideas</h4>
+        <%= render tweet.ideas %>
+      </div>
+    </div>
+    
     <div class="card-actions justify-end flex items-center gap-4">
       <div class=""><small><%= tweet.created_at %></small></div>
     </div>

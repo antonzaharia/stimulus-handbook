@@ -23,7 +23,33 @@
   </div>
 
   <div class="flex w-full justify-between mb-4">
-    <span data-tweet-form-target="characterCount"></span>
+
+    <div class="w-full">
+      <h4 class="mb-3">Ideas</h4>
+      <div class="w-full" data-controller="nested-form">
+        <template data-nested-form-target="template">
+          <%= form.fields_for :ideas, Idea.new, child_index: "NEW_RECORD" do |idea| %>
+            <%= render "tweets/ideas_fields", form: idea %>
+          <% end %>
+        </template>
+
+        <%= form.fields_for :ideas do |idea| %>
+          <%= render "tweets/ideas_fields", form: idea %>
+        <% end %>
+
+        <div class="mb-3" data-nested-form-target="links">
+          <%= link_to "Add idea", "#", class: "btn", data: { action: "click->nested-form#add_association" } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full flex justify-end">
+      <span data-tweet-form-target="characterCount"></span>
+    </div>
+  </div>
+
+  <div class="flex w-full justify-between mb-4">
+    <span></span>
     <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

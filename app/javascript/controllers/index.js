@@ -10,6 +10,9 @@ application.register("edit-user", EditUserController)
 import InlineEditController from "./inline_edit_controller"
 application.register("inline-edit", InlineEditController)
 
+import NestedFormController from "./nested_form_controller"
+application.register("nested-form", NestedFormController)
+
 import ToastifyController from "./toastify_controller"
 application.register("toastify", ToastifyController)
 
