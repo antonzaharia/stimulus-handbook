@@ -15,8 +15,9 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
         </label>
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-          <li><%= link_to "Dashboard", root_path %></li>
+          <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Account", edit_user_registration_path(current_user) %></li>
+          <div class="divider"></div>
           <li><%= button_to "Sign out", destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>

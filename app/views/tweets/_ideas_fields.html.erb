@@ -1,7 +1,7 @@
 <%= content_tag :div, class: "nested_fields w-full", data: { new_record: form.object.new_record? } do %>
   <div class="mb-4 flex w-full items-center gap-4">
-    <%= form.text_field :body, class: "input", placeholder: "Add an idea to the tweet" %>
     <%= link_to "Remove", "#", class: "btn btn-link btn-xs", data: { action: "click->nested-form#remove_association" } %>
+    <%= form.text_field :body, class: "input", placeholder: "Add an idea to the tweet" %>
   </div>
 
   <%= form.hidden_field :_destroy %>

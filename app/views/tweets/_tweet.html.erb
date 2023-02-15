@@ -1,20 +1,26 @@
-<div data-controller="inline-edit" id="<%= dom_id(tweet) %>" class="card bg-base-100 shadow-xl mb-3">
+<div
+  data-controller="inline-edit"
+  id="<%= dom_id(tweet) %>"
+  class="card bg-base-100 shadow-xl mb-3"
+>
   <div class="card-body">
-    <h2 class="card-title"><%= tweet.user.name %></h2>
+    <h2 class="card-title"></h2>
     <div data-inline-edit-target="body" data-action="click->inline-edit#toggle">
-      <div class="stats shadow bg-plum-900 w-full">
+      <div class="stats shadow">
         <div class="stat">
-          <div class="stat-value"><%= tweet.body %></div>
+          <div class="stat-title"><%= tweet.body %></div>
         </div>
       </div>
       <div>
-        <h4 class="label">Ideas</h4>
+        <div class="divider">Ideas</div>
         <%= render tweet.ideas %>
       </div>
     </div>
-    
+
     <div class="card-actions justify-end flex items-center gap-4">
-      <div class=""><small><%= tweet.created_at %></small></div>
+      <div class=""><small><%= tweet.user.name %>
+          |
+          <%= tweet.created_at.strftime("%B %d, %Y") %></small></div>
     </div>
     <%= render "form", tweet: tweet, class: "hidden" %>
   </div>
