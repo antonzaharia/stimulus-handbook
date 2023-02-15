@@ -1,0 +1,37 @@
+<div class="mx-auto my-10 rounded-lg shadow p-10 max-w-lg border-gray-600 border-solid border">
+  <h1 class="text-center text-2xl mb-6"><%= t(".sign_up") %></h1>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { "data-turbo" => "false" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <% if @workspace_user.present? %>
+      <div class="mb-6">
+        <%= f.label :email, class: "font-medium" %>
+        <span class="input text-gray-400"><%= @workspace_user.email %></span>
+      </div>
+      <%= f.hidden_field :email, value: @workspace_user.email %>
+    <% else %>
+      <div class="mb-6">
+        <%= f.label :email, class: "font-medium" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+      </div>
+    <% end %>
+
+    <div class="mb-6">
+      <%= f.label :password, class: "font-medium" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
+      <% if @minimum_password_length %>
+        <small class="text-muted"><%= t("devise.shared.minimum_password_length", count: @minimum_password_length) %></small>
+      <% end %>
+    </div>
+
+    <div class="mb-6">
+      <%= f.label :password_confirmation, class: "font-medium" %>
+      <%= f.password_field :password_confirmation, autocomplete: "current-password", class: "input" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", class: "my-2 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800" %>
+    </div>
+  <% end %>
+</div>
+<%= render "devise/shared/links" %>
