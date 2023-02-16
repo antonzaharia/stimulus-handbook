@@ -4,9 +4,16 @@ class TweetsController < ApplicationController
 
   # GET /tweets or /tweets.json
   def index
-    @pagy, @tweets = pagy Tweet.order(created_at: :desc), items: 3
+    @pagy, @tweets = pagy Tweet.order(created_at: :desc)
     @tweet = Tweet.new
     @tweet.ideas.new
+
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: { entries: render_to_string(partial: "tweets/tweets", formats: [:html]), pagination: view_context.pagy_nav(@pagy) }
+      }
+    end
   end
 
   # GET /tweets/1 or /tweets/1.json

@@ -1,7 +1,11 @@
 <%= turbo_frame_tag "new_tweet" do %>
   <%= render "form", tweet: @tweet %>
 <% end %>
-<div id="tweets">
-  <%= render @tweets %>
+<div data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+  <div id="tweets" data-infinite-scroll-target="entries">
+    <%= render 'tweets/tweets' %>
+  </div>
+  <div data-infinite-scroll-target="pagination">
+    <%== pagy_nav(@pagy) %>
+  </div>
 </div>
-<%== pagy_nav(@pagy) %>
