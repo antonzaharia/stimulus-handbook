@@ -5,35 +5,43 @@ import Rails from '@rails/ujs'
 export default class extends Controller {
   static targets = ['entries', 'pagination']
 
-  scroll() {
+  initialize() {
+    let options = {
+      rootMargin: '200px'
+    }
+    this.intersectionObserver = new IntersectionObserver((entries) => this.processIntersectionEntries(entries), options)
+  }
+
+  connect() {
+    this.intersectionObserver.observe(this.paginationTarget)
+  }
+
+  disconnect() {
+    this.intersectionObserver.unobserve(this.paginationTarget)
+  }
+
+  processIntersectionEntries(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        this.loadMore()
+      }
+    })
+  }
+
+  loadMore() {
     let next_page = this.paginationTarget.querySelector("a[rel='next']")
     if (next_page == null) {
       return
     }
 
     let url = next_page.href
-    let body = document.body,
-      html = document.documentElement
-    let height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
-    if (window.pageYOffset >= height - window.innerHeight - 100) {
-      this.loadMore(url)
-    }
-  }
-
-  loadMore(url) {
-    if (this.loading) {
-      return
-    }
-
-    this.loading = true
 
     Rails.ajax({
       type: 'GET',
       url: url,
       dataType: 'json',
       success: (data) => {
-        this.entriesTarget.insertAdjacentHTML('beforeend', data.entries),
-        this.paginationTarget.innerHTML = data.pagination
+        this.entriesTarget.insertAdjacentHTML('beforeend', data.entries), (this.paginationTarget.innerHTML = data.pagination)
         this.loading = false
       },
     })
