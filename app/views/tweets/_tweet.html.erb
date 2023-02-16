@@ -7,9 +7,13 @@
     <h2 class="card-title"></h2>
     <div data-inline-edit-target="body" data-action="click->inline-edit#toggle">
       <%= tweet.body %>
-      <div>
-        <div class="divider">Ideas</div>
-        <%= render tweet.ideas %>
+      <div class="divider">Ideas</div>
+      <div data-controller="drag" data-drag-url="/ideas/:id/move">
+        <% tweet.ideas.order(position: :asc).each do |idea| %>
+          <div data-id="<%= idea.id %>">
+            <%= render idea %>
+          </div>
+        <% end %>
       </div>
     </div>
 

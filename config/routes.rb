@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   resources :tweets do 
     resources :likes, only: [:create]
   end
+
+  resources :ideas, only: [] do
+    patch :move
+  end
 end
