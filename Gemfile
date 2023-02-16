@@ -84,4 +84,4 @@ gem "acts_as_list", "~> 1.1"
 
 gem "pagy", "~> 6.0"
 
-gem "cable_ready", "~> 4.5"
+gem "cable_ready", "5.0.0.pre10"
