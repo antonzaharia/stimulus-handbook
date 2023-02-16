@@ -81,3 +81,5 @@ gem "devise", "~> 4.8"
 gem "erb-formatter", "~> 0.4.2"
 
 gem "acts_as_list", "~> 1.1"
+
+gem "pagy", "~> 6.0"

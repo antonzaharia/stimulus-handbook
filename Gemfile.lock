@@ -141,6 +141,7 @@ GEM
     nokogiri (1.14.2-arm64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pagy (6.0.1)
     pg (1.4.5)
     prettier_print (1.2.0)
     pry (0.14.2)
@@ -244,6 +245,7 @@ DEPENDENCIES
   erb-formatter (~> 0.4.2)
   jbuilder
   jsbundling-rails
+  pagy (~> 6.0)
   pg (~> 1.1)
   pry (~> 0.14.2)
   puma (~> 5.0)

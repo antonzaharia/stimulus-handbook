@@ -3,6 +3,7 @@
 @import 'tailwindcss/utilities';
 /* app components */
 /* @import "./components/card.css"; */
+@import "./pagy.scss";
 
 :root {
   /* Purples */
@@ -89,3 +90,4 @@ button input[type='submit'] {
     @apply badge;
   }
 }
+

@@ -10,6 +10,9 @@ application.register("drag", DragController)
 import EditUserController from "./edit_user_controller"
 application.register("edit-user", EditUserController)
 
+import InfiniteScrollController from "./infinite_scroll_controller"
+application.register("infinite-scroll", InfiniteScrollController)
+
 import InlineEditController from "./inline_edit_controller"
 application.register("inline-edit", InlineEditController)
 
