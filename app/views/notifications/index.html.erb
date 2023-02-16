@@ -1,0 +1,3 @@
+<% @likes.each do |like| %>
+  <%= render partial: "notifications/notification", locals: { like: like } %>
+<% end %>
