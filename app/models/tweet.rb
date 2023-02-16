@@ -6,6 +6,6 @@ class Tweet < ApplicationRecord
   accepts_nested_attributes_for :ideas, reject_if: :all_blank, allow_destroy: true
 
   def liked?(user)
-    !!self.likes.any?{ |like| like.user_id == user.id }
+    self.likes.find { |like| like.user_id == user.id }
   end
 end

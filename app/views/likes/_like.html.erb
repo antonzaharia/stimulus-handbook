@@ -1,0 +1,6 @@
+<%= turbo_frame_tag dom_id(like.tweet, :likes) do %>
+  <small class="flex items-center gap-3">
+    <%= like.tweet.likes.count %> Likes
+    <%= render "likes/form", like: like.tweet.liked?(current_user) || like.tweet.likes.new %>
+  </small>
+<% end %>

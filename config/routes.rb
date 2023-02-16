@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   patch "/users/:id", to: "users#update", as: :edit_user
 
   root "main#index"
-  resources :tweets
+  resources :tweets do 
+    resources :likes, only: [:create]
+  end
 end
