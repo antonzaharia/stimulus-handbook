@@ -2,8 +2,8 @@
 
 one:
   user: one
-  body: MyText
+  body: Tweet content 1
 
 two:
   user: two
-  body: MyText
+  body: Tweet content 2

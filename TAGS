@@ -1,0 +1,182 @@
+
+app/mailers/application_mailer.rb,67
+class ApplicationMailer < ActionMailer::BaseApplicationMailer1,0
+
+app/models/idea.rb,212
+class Idea < ApplicationRecordIdea1,0
+  belongs_to :tweettweet4,0
+  belongs_to :tweettweet=4,0
+  belongs_to :tweetbuild_tweet4,0
+  belongs_to :tweetcreate_tweet4,0
+  belongs_to :tweetcreate_tweet!4,0
+
+app/models/tweet.rb,758
+class Tweet < ApplicationRecordTweet1,0
+  belongs_to :useruser2,0
+  belongs_to :useruser=2,0
+  belongs_to :userbuild_user2,0
+  belongs_to :usercreate_user2,0
+  belongs_to :usercreate_user!2,0
+  has_many :ideas, -> { order(position: :asc) }, inverse_of: :tweetideas3,0
+  has_many :ideas, -> { order(position: :asc) }, inverse_of: :tweetideas=3,0
+  has_many :ideas, -> { order(position: :asc) }, inverse_of: :tweetidea_ids3,0
+  has_many :ideas, -> { order(position: :asc) }, inverse_of: :tweetidea_ids=3,0
+  has_many :likes, dependent: :destroylikes4,0
+  has_many :likes, dependent: :destroylikes=4,0
+  has_many :likes, dependent: :destroylike_ids4,0
+  has_many :likes, dependent: :destroylike_ids=4,0
+  def liked?(user)liked?8,0
+
+app/models/like.rb,374
+class Like < ApplicationRecordLike1,0
+  belongs_to :useruser2,0
+  belongs_to :useruser=2,0
+  belongs_to :userbuild_user2,0
+  belongs_to :usercreate_user2,0
+  belongs_to :usercreate_user!2,0
+  belongs_to :tweettweet3,0
+  belongs_to :tweettweet=3,0
+  belongs_to :tweetbuild_tweet3,0
+  belongs_to :tweetcreate_tweet3,0
+  belongs_to :tweetcreate_tweet!3,0
+
+app/models/application_record.rb,67
+class ApplicationRecord < ActiveRecord::BaseApplicationRecord1,0
+
+app/models/user.rb,372
+class User < ApplicationRecordUser1,0
+  has_many :tweetstweets7,0
+  has_many :tweetstweets=7,0
+  has_many :tweetstweet_ids7,0
+  has_many :tweetstweet_ids=7,0
+  has_many :likes, dependent: :destroylikes8,0
+  has_many :likes, dependent: :destroylikes=8,0
+  has_many :likes, dependent: :destroylike_ids8,0
+  has_many :likes, dependent: :destroylike_ids=8,0
+
+app/jobs/application_job.rb,58
+class ApplicationJob < ActiveJob::BaseApplicationJob1,0
+
+app/controllers/application_controller.rb,79
+class ApplicationController < ActionController::BaseApplicationController1,0
+
+app/controllers/notifications_controller.rb,104
+class NotificationsController < ApplicationControllerNotificationsController1,0
+  def indexindex2,0
+
+app/controllers/main_controller.rb,86
+class MainController < ApplicationControllerMainController1,0
+  def indexindex2,0
+
+app/controllers/likes_controller.rb,90
+class LikesController < ApplicationControllerLikesController1,0
+  def createcreate2,0
+
+app/controllers/users_controller.rb,125
+class UsersController < ApplicationControllerUsersController1,0
+  def updateupdate2,0
+  def user_paramsuser_params17,0
+
+app/controllers/tweets_controller.rb,296
+class TweetsController < ApplicationControllerTweetsController1,0
+  def indexindex6,0
+  def showshow20,0
+  def newnew24,0
+  def editedit29,0
+  def createcreate33,0
+  def updateupdate48,0
+  def destroydestroy60,0
+  def set_tweetset_tweet72,0
+  def tweet_paramstweet_params77,0
+
+app/controllers/ideas_controller.rb,86
+class IdeasController < ApplicationControllerIdeasController1,0
+  def movemove2,0
+
+app/helpers/main_helper.rb,33
+module MainHelperMainHelper1,0
+
+app/helpers/tweets_helper.rb,37
+module TweetsHelperTweetsHelper1,0
+
+app/helpers/application_helper.rb,47
+module ApplicationHelperApplicationHelper1,0
+
+app/channels/application_cable/connection.rb,195
+module ApplicationCableApplicationCable1,0
+  class Connection < ActionCable::Connection::BaseConnection2,0
+  class Connection < ActionCable::Connection::BaseApplicationCable::Connection2,0
+
+app/channels/application_cable/channel.rb,177
+module ApplicationCableApplicationCable1,0
+  class Channel < ActionCable::Channel::BaseChannel2,0
+  class Channel < ActionCable::Channel::BaseApplicationCable::Channel2,0
+
+app/channels/ideas_channel.rb,132
+class IdeasChannel < ApplicationCable::ChannelIdeasChannel1,0
+  def subscribedsubscribed2,0
+  def unsubscribedunsubscribed6,0
+
+test/models/idea_test.rb,54
+class IdeaTest < ActiveSupport::TestCaseIdeaTest3,0
+
+test/models/like_test.rb,54
+class LikeTest < ActiveSupport::TestCaseLikeTest3,0
+
+test/models/user_test.rb,54
+class UserTest < ActiveSupport::TestCaseUserTest3,0
+
+test/models/tweet_test.rb,56
+class TweetTest < ActiveSupport::TestCaseTweetTest3,0
+
+test/system/tweets_test.rb,60
+class TweetsTest < ApplicationSystemTestCaseTweetsTest3,0
+
+test/application_system_test_case.rb,95
+class ApplicationSystemTestCase < ActionDispatch::SystemTestCaseApplicationSystemTestCase3,0
+
+test/test_helper.rb,101
+class ActiveSupport::TestCaseTestCase5,0
+class ActiveSupport::TestCaseActiveSupport::TestCase5,0
+
+test/controllers/main_controller_test.rb,82
+class MainControllerTest < ActionDispatch::IntegrationTestMainControllerTest3,0
+
+test/controllers/tweets_controller_test.rb,86
+class TweetsControllerTest < ActionDispatch::IntegrationTestTweetsControllerTest3,0
+
+test/channels/application_cable/connection_test.rb,206
+class ApplicationCable::ConnectionTest < ActionCable::Connection::TestCaseConnectionTest3,0
+class ApplicationCable::ConnectionTest < ActionCable::Connection::TestCaseApplicationCable::ConnectionTest3,0
+
+test/channels/ideas_channel_test.rb,77
+class IdeasChannelTest < ActionCable::Channel::TestCaseIdeasChannelTest3,0
+
+config/application.rb,179
+module StimulusHandbookStimulusHandbook9,0
+  class Application < Rails::ApplicationApplication10,0
+  class Application < Rails::ApplicationStimulusHandbook::Application10,0
+
+db/migrate/20230216095249_create_likes.rb,89
+class CreateLikes < ActiveRecord::Migration[7.0]CreateLikes1,0
+  def changechange2,0
+
+db/migrate/20230216111208_add_position_to_ideas.rb,103
+class AddPositionToIdeas < ActiveRecord::Migration[7.0]AddPositionToIdeas1,0
+  def changechange2,0
+
+db/migrate/20230215103736_create_tweets.rb,91
+class CreateTweets < ActiveRecord::Migration[7.0]CreateTweets1,0
+  def changechange2,0
+
+db/migrate/20230215104358_add_name_to_users.rb,95
+class AddNameToUsers < ActiveRecord::Migration[7.0]AddNameToUsers1,0
+  def changechange2,0
+
+db/migrate/20230215101746_devise_create_users.rb,101
+class DeviseCreateUsers < ActiveRecord::Migration[7.0]DeviseCreateUsers3,0
+  def changechange4,0
+
+db/migrate/20230215145910_create_ideas.rb,89
+class CreateIdeas < ActiveRecord::Migration[7.0]CreateIdeas1,0
+  def changechange2,0

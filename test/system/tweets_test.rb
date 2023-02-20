@@ -15,7 +15,6 @@ class TweetsTest < ApplicationSystemTestCase
     click_on "New tweet"
 
     fill_in "Body", with: @tweet.body
-    fill_in "User", with: @tweet.user_id
     click_on "Create Tweet"
 
     assert_text "Tweet was successfully created"
