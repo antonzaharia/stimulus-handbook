@@ -21,20 +21,49 @@ class RatingTest < ActiveSupport::TestCase
     assert_not rating.errors[:score].empty?
   end
 
-  test "promoter? return true if score is 9 or 10" do
+  test "promoter? returns true if score is 9 or 10" do
     9.upto(10).each do |i|
       rating = Rating.new(score: i)
       assert rating.promoter?
     end
   end
 
-  test "promoter? return false if score is less than 9" do
+  test "promoter? returns false if score is less than 9" do
     rating = Rating.new(score: 8)
     assert_not rating.promoter?
   end
 
-  test "promoter? return false if score is bigger than 10" do
+  test "promoter? returns false if score is bigger than 10" do
     rating = Rating.new(score: 11)
     assert_not rating.promoter?
+  end
+
+  test "passive? returns true if score is 7 or 8" do
+    7.upto(8).each do |i|
+      rating = Rating.new(score: i)
+      assert rating.passive?
+    end
+  end
+
+  test "passive? returns false if score is bigger than 8" do
+    rating = Rating.new(score: 9)
+    assert_not rating.passive?
+  end
+
+  test "passive? returns false if score is less than 7" do
+    rating = Rating.new(score: 6)
+    assert_not rating.passive?
+  end
+
+  test "detractor? returns true if score is less than or equal to 6" do
+    0.upto(6).each do |i|
+      rating = Rating.new(score: i)
+      assert rating.detractor?
+    end
+  end
+
+  test "detractor? returns false if score is bigger than 6" do
+    rating = Rating.new(score: 7)
+    assert_not rating.detractor?
   end
 end
