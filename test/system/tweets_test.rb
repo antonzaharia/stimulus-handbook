@@ -3,40 +3,30 @@ require "application_system_test_case"
 class TweetsTest < ApplicationSystemTestCase
   setup do
     @tweet = tweets(:one)
+    @idea = ideas(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
-  test "visiting the index" do
+  test "create new tweet with ideas" do
     visit tweets_url
-    assert_selector "h1", text: "Tweets"
-  end
 
-  test "should create tweet" do
-    visit tweets_url
-    click_on "New tweet"
+    fill_in "tweet_body", with: "New tweet"
+    fill_in "tweet[ideas_attributes][0][body]", with: "New idea"
 
-    fill_in "Body", with: @tweet.body
     click_on "Create Tweet"
-
-    assert_text "Tweet was successfully created"
-    click_on "Back"
+    assert_selector "h1", text: "New tweet"
+    assert_selector "div", text: "New idea"
   end
 
-  test "should update Tweet" do
-    visit tweet_url(@tweet)
-    click_on "Edit this tweet", match: :first
-
-    fill_in "Body", with: @tweet.body
-    fill_in "User", with: @tweet.user_id
+  test "can update a tweet" do
+    visit tweets_url
+    find('div.divider', match: :first).click
+    within("##{dom_id(@tweet)}") do
+      fill_in "tweet_body", with: "Tweet body edited"
+    end
     click_on "Update Tweet"
-
-    assert_text "Tweet was successfully updated"
-    click_on "Back"
+    assert_selector "h1", text: "Tweet body edited"
   end
 
-  test "should destroy Tweet" do
-    visit tweet_url(@tweet)
-    click_on "Destroy this tweet", match: :first
-
-    assert_text "Tweet was successfully destroyed"
-  end
 end

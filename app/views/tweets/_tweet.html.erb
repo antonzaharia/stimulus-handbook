@@ -6,7 +6,7 @@
   <div class="card-body">
     <h2 class="card-title"></h2>
     <div data-inline-edit-target="body" data-action="click->inline-edit#toggle">
-      <%= tweet.body %>
+      <h1><%= tweet.body %></h1>
       <div class="divider">Ideas</div>
       <div data-controller="drag" data-drag-url="/ideas/:id/move">
         <% tweet.ideas.order(position: :asc).each do |idea| %>
