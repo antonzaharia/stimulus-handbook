@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :tweets
   has_many :likes, dependent: :destroy
   has_many :ratings
+
+  def on_trial?
+    Time.current < (created_at + 7.days)
+  end
 end
