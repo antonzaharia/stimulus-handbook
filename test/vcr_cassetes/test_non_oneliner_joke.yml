@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://v2.jokeapi.dev/joke/Any?safe-mode
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - v2.jokeapi.dev
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 20 Feb 2023 17:18:53 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '393'
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 79c8e7714e57418b-LHR
+      Access-Control-Allow-Origin:
+      - "*"
+      Allow:
+      - GET, POST, HEAD, OPTIONS, PUT
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, no-transform
+      Expires:
+      - '0'
+      Retry-After:
+      - '43'
+      Strict-Transport-Security:
+      - max-age=15552000
+      Cf-Cache-Status:
+      - DYNAMIC
+      Access-Control-Allow-Headers:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, PUT
+      Access-Control-Request-Method:
+      - GET
+      Api-Info:
+      - JokeAPI v2.3.2 (https://v2.jokeapi.dev)
+      Content-Security-Policy:
+      - 'default-src https: ''unsafe-eval'' ''unsafe-inline''; object-src ''none'''
+      Pragma:
+      - no-cache
+      Ratelimit-Limit:
+      - '120'
+      Ratelimit-Remaining:
+      - '118'
+      Ratelimit-Reset:
+      - Mon Feb 20 2023 17:19:36 GMT+0000 (Coordinated Universal Time)
+      Referrer-Policy:
+      - no-referrer, strict-origin-when-cross-origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=%2FOGxfoQmENFHYbt%2BMTcue9ST1DzSbh%2FV3FV7UUSdV%2BCcibeGFdOCgITez1hbo%2FLXUf6p86yEHZN2hKn86GR3q3q8p0wwNRM%2Bbf0p6NhzMTXlT5DLN0MK7JgpYNYb0XM2qA%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "error": false,
+            "category": "Programming",
+            "type": "twopart",
+            "setup": "Why is Linux safe?",
+            "delivery": "Hackers peak through Windows only.",
+            "flags": {
+                "nsfw": false,
+                "religious": false,
+                "political": false,
+                "racist": false,
+                "sexist": false,
+                "explicit": false
+            },
+            "safe": true,
+            "id": 260,
+            "lang": "en"
+        }
+  recorded_at: Mon, 20 Feb 2023 17:18:53 GMT
+recorded_with: VCR 6.1.0

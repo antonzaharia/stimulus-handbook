@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require "webmock/minitest"
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
@@ -11,4 +12,10 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   include Devise::Test::IntegrationHelpers
+end
+
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'test/vcr_cassetes'
+  config.hook_into :webmock
 end

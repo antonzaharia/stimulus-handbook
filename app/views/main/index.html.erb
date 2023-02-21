@@ -1,4 +1,20 @@
-<div class="text-center p-5">
-  <h1 class="text-6xl">Stimulus Twitter</h1>
-  <p class="text-lg">A simple copy of Twiter using Rails 7 & Stimulus</p>
+<div class="p-5">
+  <div class="text-center">
+    <h1 class="text-6xl">Stimulus Twitter</h1>
+    <p class="text-lg">A simple copy of Twiter using Rails 7 & Stimulus</p>
+  </div>
+
+  
+  <div class="mt-96 card bg-primary">
+    <div class="card-body">
+      <h2 class="card-title text-black">A random joke:</h2>
+      <% joke = MainHelper::Joke.new %>
+      <% if joke.oneliner? %>
+        <p class="text-black"><%= joke.oneliner %></p>
+      <% else %>
+        <p class="text-black"><%= joke.setup %></p>
+        <p class="text-black"><%= joke.delivery %></p>
+      <% end %>
+    </div>
+  </div>
 </div>
