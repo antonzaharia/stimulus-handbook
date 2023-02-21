@@ -71,7 +71,10 @@ class RatingTest < ActiveSupport::TestCase
 
   test "update user score cache when created" do
     user = users(:one)
-    user.ratings.create(score: 9)
+
+    assert_enqueued_with(job: UpdateUserJob, args: [user.id, 9]) do
+      user.ratings.create(score: 9)
+    end
     perform_enqueued_jobs
     assert_equal 9, user.reload.score
   end

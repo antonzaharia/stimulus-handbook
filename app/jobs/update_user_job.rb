@@ -1,4 +1,4 @@
-class UpdatePersonJob < ApplicationJob
+class UpdateUserJob < ApplicationJob
   queue_as :default
 
   def perform(user_id, score)
