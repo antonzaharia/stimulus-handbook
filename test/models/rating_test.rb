@@ -1,6 +1,8 @@
 require "test_helper"
 
 class RatingTest < ActiveSupport::TestCase
+  include ActiveJob::TestHelper
+  
   test "valid if score is between 0 and 10" do
     0.upto(10).each do |i|
       rating = Rating.new(score: i)
@@ -70,6 +72,7 @@ class RatingTest < ActiveSupport::TestCase
   test "update user score cache when created" do
     user = users(:one)
     user.ratings.create(score: 9)
-    assert_equal 9, user.score
+    perform_enqueued_jobs
+    assert_equal 9, user.reload.score
   end
 end

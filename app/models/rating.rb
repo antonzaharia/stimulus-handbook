@@ -4,7 +4,7 @@ class Rating < ApplicationRecord
   validates :score, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }
 
   after_create do
-    user.update(score: score)
+    UpdatePersonJob.perform_later(user_id, score)
   end
 
   def promoter?
